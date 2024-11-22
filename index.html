@@ -3,86 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exploring the Cosmos</title>
+    <title>Responsive Navbar</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@300..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Pacifico&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="container nav-container">
+    <nav>
+        <div class="container nav-container">
+            <div class="logo-container">
                 <span class="logo">Cosmos</span>
-                <span class="separator">|</span>
-                <ul class="nav-links">
-                    <li><a href="#solar-system">Solar System</a></li>
-                    <li><a href="#notes">Notes</a></li>
-                    <li><a href="#missions">Missions</a></li>
-                </ul>
+                <span class="separator">|</span> <!-- Separator aligned next to logo -->
             </div>
-        </nav>
-        <div class="hero">
-            <div class="container">
-                <div class="hero-bg">
-                    <picture>
-                        <source srcset="Images/main/Pioneer.10.jpg" media="(min-width: 1200px)">
-                        <source srcset="Images/main/Pioneer.10.jpg" media="(min-width: 768px)">
-                        <img src="Images/main/Pioneer.10.jpg" alt="Galaxy Image" class="hero-image">
-                    </picture>
-                </div>
-                <div class="hero-content">
-                    <h1>Exploring the Cosmos</h1>
-                    <p class="tagline">
-                        Journey through the universe to uncover its mysteries and inspire the future of space exploration.
-                    </p>
-                    <a href="#solar-system" class="btn">Start the Journey</a>
-                </div>
-                <div class="hero-credit">
-                    <p>
-                        <span class="info-icon">ℹ</span>
-                        Image Credit: <a href="https://www.nasa.gov/image-detail/arc-1974-ac73-9344orig/" target="_blank">NASA</a>
-                    </p>
-                </div>
-            </div>
+            <ul class="nav-links">
+                <li><a href="#solar-system">Solar System</a></li>
+                <li><a href="#notes">Notes</a></li>
+                <li><a href="#missions">Missions</a></li>
+            </ul>
+            <button class="navbar-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
-    </header>
+    </nav>
 
-    <!-- Solar System Section -->
-    <section id="solar-system" class="solar_section">
-        <div class="container">
-            <div class="solar_section-bg">
-                <picture>
-                    <source srcset="Images/main/Solar.System.jpg" media="(min-width: 1200px)">
-                    <source srcset="Images/main/Solar.System.jpg" media="(min-width: 768px)">
-                    <img src="Images/main/Solar.System.jpg" alt="Solar System Background" class="background-image">
-                </picture>
-            </div>
-            <div class="solar_section-content">
-                <p>Experience a realistic visualization of our solar system. Learn about <br> the planets, their orbits, and their unique characteristics.</p>
-            </div>
+    <section class="hero">
+        <div class="hero-bg">
+            <img src="Images/main/Pioneer.10.jpg" alt="Galaxy Image" class="hero-image">
+        </div>
+        <div class="hero-content">
+            <h1>Exploring the Cosmos: Mission Statement</h1>
+            <p class="tagline">
+                Embark on a journey through the cosmos, uncovering the mysteries of the universe 
+                while building a foundation for future exploration. This site serves as a 
+                repository for my notes as I delve into physics on the path to mastering astrophysics, 
+                guided by University Physics with Modern Physics by Hugh D. Young and Roger A. Freedman. 
+                Each concept explored here not only deepens my understanding but also contributes to the broader 
+                vision of inspiring humanity’s next great leap into the stars.
+            </p>
+            <a href="#solar-system" class="btn">
+                <span class="top-key"></span>
+                <span class="text">Start the Journey</span>
+                <span class="bottom-key-1"></span>
+                <span class="bottom-key-2"></span>
+                </a>
+        </div>
+        <div class="hero-credit">
+            <p>
+                <span class="info-icon">ℹ</span>
+                Image Credit: <a href="https://www.nasa.gov/image-detail/arc-1974-ac73-9344orig/" target="_blank">NASA</a>
+            </p>
         </div>
     </section>
-    <!-- Solar System Section -->
 
-    <!-- Notes Section -->
-    <section id="notes" class="notes_section">
-        <div class="container">
-            <div class="notes_section-bg">
-                <picture>
-                    <source srcset="Images/main/notes.jpg" media="(min-width: 1200px)">
-                    <source srcset="Images/main/notes.jpg" media="(min-width: 768px)">
-                    <img src="Images/main/notes.jpg" alt="Notes Background" class="background-image">
-                </picture>
-            </div>
-            <div class="notes_section-content">
-                <h1>Astrophysics Notes</h1>
-                <p>Dive into detailed notes inspired by "University Physics with Modern Physics" by Hugh D. Young and Roger A. Freedman.</p>
-                <a href="#solar-system" class="btn">Lets Take notes</a>
-            </div>
-        </div>
-    </section>
+    <script src="script.js"></script>
 </body>
 </html>

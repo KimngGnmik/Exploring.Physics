@@ -1,12 +1,17 @@
-body, html {
+/* ========== GENERAL RESET ========== */
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Untitled Sans';
 }
 
+body {
+    font-family: Arial, sans-serif;
+    padding-top: 70px; /* Prevent content overlap with the fixed navbar */
+    background-color: #333; /* Optional: To blend the page with the hero section */
+}
 
-/* - - - - - - - - - - - - - - - - Navigation - - - - - - - - - - - - - - - - */
+/* ========== NAVBAR SECTION ========== */
 nav {
     position: fixed;
     top: 0;
@@ -19,26 +24,33 @@ nav {
 .nav-container {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Align everything to the left */
-    gap: 1rem;
+    justify-content: space-between; /* Keeps logo on the left and links on the right */
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
 }
 
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: #fff;
+    margin-right: 0.5rem; /* Spacing between logo and separator */
 }
 
 .separator {
     color: rgba(255, 255, 255, 0.5); /* Light separator color */
     font-size: 1.5rem;
     font-weight: bold;
+    margin: 0;
+    line-height: 1; /* Aligns well vertically */
 }
 
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 1.5rem;
+    gap: 1.5rem; /* Space between nav links */
     margin: 0;
 }
 
@@ -46,24 +58,63 @@ nav {
     text-decoration: none;
     color: #fff;
     font-weight: bold;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease; /* Smooth hover effect */
 }
 
 .nav-links a:hover {
     color: #00bcd4;
 }
-/* - - - - - - - - - - - - - - - - Navigation - - - - - - - - - - - - - - - - */
 
+/* Hamburger menu button styles */
+.navbar-toggle {
+    display: none; /* Hidden on larger screens */
+    flex-direction: column;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
 
+.navbar-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+}
 
-/* - - - - - - - - - - - - - - - - Hero section - - - - - - - - - - - - - - - - */
+/* ========== RESPONSIVENESS FOR NAVBAR ========== */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; /* Hidden by default on small screens */
+        flex-direction: column;
+        background: rgba(0, 0, 0, 0.9); /* Dark background for dropdown menu */
+        position: absolute;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        padding: 1rem 0;
+        text-align: center;
+        transition: transform 0.3s ease;
+    }
+
+    .nav-links.active {
+        display: flex; /* Show menu when active */
+    }
+
+    .navbar-toggle {
+        display: flex; /* Show hamburger menu on small screens */
+    }
+}
+
+/* ========== HERO SECTION ========== */
 .hero {
     position: relative;
-    height: 100vh;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     overflow: hidden;
+    color: white;
     text-align: center;
 }
 
@@ -73,152 +124,209 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: -1; /* Send background to the back */
 }
 
-.hero-bg img {
+.hero-image {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: cover; /* Ensures the image scales properly */
+    object-position: center; /* Centers the image */
 }
 
 .hero-content {
-    position: relative;
-    z-index: 1;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ensure content is above the image */
+    max-width: 800px;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent background for readability */
+    border-radius: 10px;
 }
 
 .hero-content h1 {
-    font-family: 'Untitled Serif';
-    font-size: 4rem;
-    margin-bottom: 4.5rem;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
 }
 
 .hero-content .tagline {
     font-size: 1.2rem;
-    line-height: 1.6;
-    margin-bottom: 1.5rem;
-    color: white;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    line-height: 1.5;
+    margin-bottom: 2rem;
+    font-family: "Open Sans", sans-serif;
 }
 
+.hero-content .btn {
+    background-color: transparent;
+    border: 2px solid #000;
+    border-radius: 0;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    margin: 0;
+    outline: none;
+    overflow: visible;
+    padding: 1.25em 2em;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    text-transform: none;
+    transition: all 0.3s ease-in-out;
+    user-select: none;
+    font-size: 13px;
+   }
+   
+   .hero-content .btn::before {
+    content: " ";
+    width: 1.5625rem;
+    height: 2px;
+    background: #333;
+    top: 50%;
+    left: 1.5em;
+    position: absolute;
+    transform: translateY(-50%);
+    transform-origin: center;
+    transition: background 0.3s linear, width 0.3s linear;
+   }
+   
+   .hero-content .btn .text {
+    font-size: 1.125em;
+    line-height: 1.33333em;
+    padding-left: 2em;
+    display: block;
+    text-align: left;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: white;
+   }
+   
+   .hero-content .btn .top-key {
+    height: 2px;
+    width: 1.5625rem;
+    top: -2px;
+    left: 0.625rem;
+    position: absolute;
+    background: #e8e8e8;
+    transition: width 0.5s ease-out, left 0.3s ease-out;
+   }
+   
+   .hero-content .btn .bottom-key-1 {
+    height: 2px;
+    width: 1.5625rem;
+    right: 1.875rem;
+    bottom: -2px;
+    position: absolute;
+    background: #e8e8e8;
+    transition: width 0.5s ease-out, right 0.3s ease-out;
+   }
+   
+   .hero-content .btn .bottom-key-2 {
+    height: 2px;
+    width: 0.625rem;
+    right: 0.625rem;
+    bottom: -2px;
+    position: absolute;
+    background: #e8e8e8;
+    transition: width 0.5s ease-out, right 0.3s ease-out;
+   }
+   
+   .hero-content .btn:hover {
+    color: white;
+    background: black;
+   }
+   
+   .hero-content .btn:hover::before {
+    width: 0.9375rem;
+    background: white;
+   }
+   
+   .hero-content .btn:hover .text {
+    color: white;
+    padding-left: 1.5em;
+   }
+   
+   .hero-content .btn:hover .top-key {
+    left: -2px;
+    width: 0px;
+   }
+   
+   .hero-content .btn:hover .bottom-key-1,
+    .hero-content .btn:hover .bottom-key-2 {
+    right: 0;
+    width: 0;
+   }
+
+/* ========== HERO CREDIT ========== */
 .hero-credit {
     position: absolute;
-    bottom: 1rem;
-    right: 1.5rem;
+    bottom: 2%; /* Adjust to sit above the signature */
+    right: 1%; /* Fine-tune based on alignment with the signature */
     font-size: 0.9rem;
-    background: rgba(0, 0, 0, 0.5);
-    color: rgba(255, 255, 255, 0.8);
-    padding: 0.3rem 0.6rem;
-    border-radius: 5px;
+    color: rgba(255, 255, 255, 0.8); /* Subtle text color */
+    text-align: right;
 }
 
-.btn {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    margin-top: 20rem;
-    background: #00bcd4;
-    color: black;
-    font-weight: bold;
-    text-transform: uppercase;
-    border: none;
-    border-radius: 5px;
+.hero-credit a {
+    color: #00bcd4; /* Bright color for the link */
     text-decoration: none;
-    cursor: pointer;
-    transition: background 0.3s ease;
+    font-weight: bold;
 }
 
-.btn:hover {
-    background: #008394;
-}
-/* - - - - - - - - - - - - - - - - Hero section - - - - - - - - - - - - - - - - */
-
-/* - - - - - - - - - - - - - - - - Solar section - - - - - - - - - - - - - - - - */
-.solar_section {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    text-align: center;
+.hero-credit a:hover {
+    text-decoration: underline; /* Underline link on hover */
 }
 
-.solar_section-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-}
-
-.solar_section-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.solar_section-content {
-    position: relative;
-    z-index: 1;
-    width: 90%;
-    max-width: 800px;
-    color: #111;
-    margin-top: 33rem;
-    margin-left: 20.5rem;
-    margin-right: 21rem;
-    font-family: 'Permanent Marker', cursive;
+.info-icon {
+    margin-right: 0.5rem; /* Space between icon and text */
     font-size: 1rem;
-    letter-spacing: 2px;
-    color: #333; /* Replace with your preferred color */
-}
-/* - - - - - - - - - - - - - - - - Solar section - - - - - - - - - - - - - - - - */
-
-/* - - - - - - - - - - - - - - - - Notes section - - - - - - - - - - - - - - - - */
-.notes_section {
-    position: relative;
-    height: 100vh;
-    overflow: hidden;
-    text-align: center;
+    vertical-align: middle; /* Align icon with the text */
 }
 
-.notes_section-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+/* ========== RESPONSIVENESS FOR HERO SECTION ========== */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content .tagline {
+        font-size: 1rem;
+    }
+
+    .hero-content .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+    }
+
+    .hero-credit {
+        bottom: 2%; /* Adjust for smaller screens */
+        right: 2%; /* Slightly shift for mobile scaling */
+        font-size: 0.8rem; /* Slightly smaller font */
+    }
 }
 
-.notes_section-bg img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+@media (max-width: 480px) {
+    .hero-content {
+        padding: 0.5rem;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content .tagline {
+        font-size: 0.9rem;
+    }
+
+    .hero-credit {
+        bottom: 2%; /* Push slightly higher on very small screens */
+        right: 2%; /* Align for small screens */
+        font-size: 0.7rem; /* Smaller font for compact view */
+    }
 }
-
-.notes_section-content {
-    position: relative;
-    z-index: 1;
-    width: 90%;
-    max-width: 800px;
-    color: #111;
-    margin-top: 33rem;
-    margin-left: 20.5rem;
-    margin-right: 21rem;
-    font-family: 'Permanent Marker', cursive;
-    font-size: 1rem;
-    letter-spacing: 2px;
-    color: #333; /* Replace with your preferred color */
-    background-color:antiquewhite;
-}
-
-.notes_section h1{
-    font-family: 'Untitled Serif';
-    font-size: 4rem;
-    margin-bottom: 4.5rem;
-    color: white;
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
-}
-/* - - - - - - - - - - - - - - - - Notes section - - - - - - - - - - - - - - - - */
-
-
