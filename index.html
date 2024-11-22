@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exploring the Cosmos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="container nav-container">
+                <span class="logo">Cosmos</span>
+                <span class="separator">|</span>
+                <ul class="nav-links">
+                    <li><a href="#solar-system">Solar System</a></li>
+                    <li><a href="#notes">Notes</a></li>
+                    <li><a href="#missions">Missions</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class="hero">
+            <div class="container">
+                <div class="hero-bg">
+                    <picture>
+                        <source srcset="Images/main/Pioneer.10.jpg" media="(min-width: 1200px)">
+                        <source srcset="Images/main/Pioneer.10.jpg" media="(min-width: 768px)">
+                        <img src="Images/main/Pioneer.10.jpg" alt="Galaxy Image" class="hero-image">
+                    </picture>
+                </div>
+                <div class="hero-content">
+                    <h1>Exploring the Cosmos</h1>
+                    <p class="tagline">
+                        Journey through the universe to uncover its mysteries and inspire the future of space exploration.
+                    </p>
+                    <a href="#solar-system" class="btn">Start the Journey</a>
+                </div>
+                <div class="hero-credit">
+                    <p>
+                        <span class="info-icon">ℹ</span>
+                        Image Credit: <a href="https://www.nasa.gov/image-detail/arc-1974-ac73-9344orig/" target="_blank">NASA</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Solar System Section -->
+    <section id="solar-system" class="solar_section">
+        <div class="container">
+            <div class="solar_section-bg">
+                <picture>
+                    <source srcset="Images/main/Solar.System.jpg" media="(min-width: 1200px)">
+                    <source srcset="Images/main/Solar.System.jpg" media="(min-width: 768px)">
+                    <img src="Images/main/Solar.System.jpg" alt="Solar System Background" class="background-image">
+                </picture>
+            </div>
+            <div class="solar_section-content">
+                <p>Experience a realistic visualization of our solar system. Learn about <br> the planets, their orbits, and their unique characteristics.</p>
+            </div>
+        </div>
+    </section>
+    <!-- Solar System Section -->
+
+    <!-- Notes Section -->
+    <section id="notes" class="notes_section">
+        <div class="container">
+            <div class="notes_section-bg">
+                <picture>
+                    <source srcset="Images/main/notes.jpg" media="(min-width: 1200px)">
+                    <source srcset="Images/main/notes.jpg" media="(min-width: 768px)">
+                    <img src="Images/main/notes.jpg" alt="Notes Background" class="background-image">
+                </picture>
+            </div>
+            <div class="notes_section-content">
+                <h1>Astrophysics Notes</h1>
+                <p>Dive into detailed notes inspired by "University Physics with Modern Physics" by Hugh D. Young and Roger A. Freedman.</p>
+                <a href="#solar-system" class="btn">Lets Take notes</a>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
