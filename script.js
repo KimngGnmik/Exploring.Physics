@@ -1,8 +1,11 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+// Select the hamburger menu button
+const mobileMenu = document.getElementById('mobile-menu');
 
-    hamburger.addEventListener('click', () => {
-        navLinks.classList.toggle('open');
-    });
+// Select the navigation links container
+const navbarLinks = document.querySelector('.nav-links');
+
+// Event listener to toggle the menu's visibility on click
+mobileMenu.addEventListener('click', () => {
+    // Toggle the 'active' class on the nav-links element
+    navbarLinks.classList.toggle('active');
 });
