@@ -9,6 +9,7 @@ body {
     font-family: Arial, sans-serif;
     padding-top: 70px; /* Prevent content overlap with the fixed navbar */
     background-color: #333; /* Optional: To blend the page with the hero section */
+    overflow-x: auto; /* Make the content scrollable by default */
 }
 
 /* ========== NAVBAR SECTION ========== */
